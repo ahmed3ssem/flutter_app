@@ -15,7 +15,19 @@ class MyApp extends StatelessWidget
         appBar: AppBar(
           title: Text("First App"),
         ),
-        body: Text("Messi "),
+        body: Column(
+          children: <Widget>[
+            Text("Messi"),
+            RaisedButton(
+              child: Text("Click Me"),
+              onPressed: null,
+            ),
+            RaisedButton(
+              child: Text("Click Me"),
+              onPressed: null,
+            ),
+          ],
+        ),
       )
     );
   }
