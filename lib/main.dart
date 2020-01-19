@@ -7,6 +7,12 @@ void main()
 
 class MyApp extends StatelessWidget
 {
+
+  void answerQuestions()
+  {
+    print("Messi");
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -20,11 +26,17 @@ class MyApp extends StatelessWidget
             Text("Messi"),
             RaisedButton(
               child: Text("Click Me"),
-              onPressed: null,
+              onPressed: answerQuestions,
             ),
             RaisedButton(
               child: Text("Click Me"),
-              onPressed: null,
+              onPressed: ()=> print("Messi"),
+            ),
+            RaisedButton(
+              child: Text("Click Me"),
+              onPressed: (){
+                print("Messi");
+              },
             ),
           ],
         ),
