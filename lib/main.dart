@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'question.dart';
+import 'answer.dart';
 
 void main()
 {
@@ -40,20 +41,9 @@ class MyAppState extends State<MyApp>
           children: <Widget>[
             Question(
                 questionList[questionIndex]),
-            RaisedButton(
-              child: Text("Click Me"),
-              onPressed: answerQuestions,
-            ),
-            RaisedButton(
-              child: Text("Click Me"),
-              onPressed: ()=> print("Messi"),
-            ),
-            RaisedButton(
-              child: Text("Click Me"),
-              onPressed: (){
-                print("Messi");
-              },
-            ),
+            Answer(answerQuestions),
+            Answer(answerQuestions),
+            Answer(answerQuestions)
           ],
         ),
       )
