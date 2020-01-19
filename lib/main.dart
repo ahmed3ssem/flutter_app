@@ -11,7 +11,12 @@ class MyApp extends StatelessWidget
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      home: Text("Messi")
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("First App"),
+        ),
+        body: Text("Messi "),
+      )
     );
   }
 }
