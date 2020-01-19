@@ -5,12 +5,26 @@ void main()
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget
+class MyApp extends StatefulWidget{
+@override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp>
 {
+  var questionIndex = 0;
+
+  var questionList = ["What is your favourite player?","What is your favourite actor?"];
 
   void answerQuestions()
   {
-    print("Messi");
+    setState(() {
+      questionIndex = questionIndex +1;
+    });
+    print(questionIndex);
   }
 
   @override
@@ -23,7 +37,7 @@ class MyApp extends StatelessWidget
         ),
         body: Column(
           children: <Widget>[
-            Text("Messi"),
+            Text(questionList[questionIndex]),
             RaisedButton(
               child: Text("Click Me"),
               onPressed: answerQuestions,
