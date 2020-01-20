@@ -19,14 +19,18 @@ class MyAppState extends State<MyApp>
 {
   var questionIndex = 0;
 
-  var questionList = ["What is your favourite player?","What is your favourite actor?"];
+  var questionList = [
+    {'questionText':'What is your favourite player?',
+      'answer':['Messi','Ronaldinho',"Zidan"]},
+    {'questionText':'What is your favourite actor?',
+      'answer':['Elsaqa','Henedy',"Kareem"]}
+    ];
 
   void answerQuestions()
   {
-    setState(() {
-      questionIndex = questionIndex +1;
-    });
-    print(questionIndex);
+   setState(() {
+     questionIndex = questionIndex+1;
+   });
   }
 
   @override
@@ -37,14 +41,16 @@ class MyAppState extends State<MyApp>
         appBar: AppBar(
           title: Text("First App"),
         ),
-        body: Column(
+        body: questionIndex<questionList.length ? Column(
           children: <Widget>[
             Question(
-                questionList[questionIndex]),
-            Answer(answerQuestions),
-            Answer(answerQuestions),
-            Answer(answerQuestions)
+                questionList[questionIndex]['questionText']),
+            ...(questionList[questionIndex]['answer'] as List<String>).map((answer){
+              return Answer(answerQuestions,answer);
+            }).toList()
           ],
+        ): Center(
+          child: Text("Messi♥"),
         ),
       )
     );
