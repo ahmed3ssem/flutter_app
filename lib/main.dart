@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/quiz.dart';
+import 'package:flutter_app/result.dart';
 import 'question.dart';
 import 'answer.dart';
 
@@ -41,18 +43,9 @@ class MyAppState extends State<MyApp>
         appBar: AppBar(
           title: Text("First App"),
         ),
-        body: questionIndex<questionList.length ? Column(
-          children: <Widget>[
-            Question(
-                questionList[questionIndex]['questionText']),
-            ...(questionList[questionIndex]['answer'] as List<String>).map((answer){
-              return Answer(answerQuestions,answer);
-            }).toList()
-          ],
-        ): Center(
-          // Love Mseei ♥
-          child: Text("Messi♥"),
-        ),
+        body: questionIndex<questionList.length ? Quiz(questions: questionList,answerQuestion: answerQuestions,questionIndex: questionIndex)
+
+            : Result()
       )
     );
   }
