@@ -20,16 +20,24 @@ class MyApp extends StatefulWidget{
 class MyAppState extends State<MyApp>
 {
   var questionIndex = 0;
+  var totalScore = 0;
 
   var questionList = [
     {'questionText':'What is your favourite player?',
-      'answer':['Messi','Ronaldinho',"Zidan"]},
+      'answer':[
+  {'text':'Messi','score':10},
+  {'text:':'Ronaldinho','score':9},
+  {'text':"Zidan",'score':8},],},
     {'questionText':'What is your favourite actor?',
-      'answer':['Elsaqa','Henedy',"Kareem"]}
-    ];
+    'answer':[
+    {'text':'Kareem','score':10},
+    {'text:':'Henedy','score':9},
+    {'text':"Elsaqa",'score':8},],}];
 
-  void answerQuestions()
+  void answerQuestions(int score)
   {
+    totalScore = totalScore+score;
+
    setState(() {
      questionIndex = questionIndex+1;
    });
